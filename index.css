@@ -1,26 +1,53 @@
 html {
-    height: 100%;
-    background-color: rgb(18, 24, 42);
-    color: white;
-    font-family: 'Helvetica', sans-serif;
-  }
+  height: 100%;
+  background-color: rgb(18, 24, 42);
+  color: white;
+  font-family: 'Helvetica', sans-serif;
+}
 
-  body {
-    height: 100%;
-  }
+body {
+  height: 100%;
+}
 
-  main {
-    display: flex;
-    margin: 15% 2%;
-  }
-  section {
-    width: 100%;
-    border: 1px solid white;
-    padding: 12px;
-  }
-  h3 {
-    height: 2em;
-  }
-  #resultsContainer {
-    flex-grow: 2;
-  }  
+main {
+  display: flex;
+  margin: 13% 2%;
+}
+
+section {
+  width: 100%;
+  border: 1px solid white;
+  padding: 12px;
+}
+
+h3 {
+  height: 2em;
+}
+
+#resultContainer {
+  flex-grow: 2;
+}
+
+#companyContainer {
+  flex-grow: 1;
+}
+
+#roleContainer {
+  flex-grow: 1;
+}
+
+input {
+  background-color: rgb(18, 24, 42);
+  border-color: white;
+  margin-right: 7px;
+}
+
+.option {
+  margin-bottom: 0.5em;
+}
+
+h1 {
+
+  width: 100%;
+  text-align: center;
+}
