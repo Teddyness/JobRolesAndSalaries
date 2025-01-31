@@ -1,4 +1,5 @@
 import { getRoles, getCompanies } from "./modules/salaryData.js";
+import { getAverageSalaryByRole, getAverageSalaryByCompany, getCompanyRoleSalary, getIndustryAverageSalary } from "./modules/workAroundModule.js";
 
 console.log(getCompanies());
 const companies = getCompanies();
@@ -31,11 +32,27 @@ const renderRadioInputBtnsAndLabels = (labels, idAttributeValue) =>{
         labelName.innerText = label;
         divElement.appendChild(labelName);
 
+        divElement.addEventListener("click", updateResults);
+
         sectionContainer.appendChild(divElement);
    });
    
    document.querySelector("main").prepend(sectionContainer);
 }
+
+function updateResults(){
+    const company = document.querySelector("input[name='company']:checked").value;
+    const role = document.querySelector("input[name='role']:checked").value;
+
+    if(!company || !role){
+        return;
+    }
+
+    document.getElementById("salarySelected").innerText = `The salary for ${role}s at ${company} is $${getCompanyRoleSalary(role, company)}`;
+    document.getElementById("salaryAverageByRole").innerText = `The industry average salary for ${role} positions is $${getAverageSalaryByRole(role)}`;
+    document.getElementById("salaryAverageByCompany").innerText = `The average salary at ${company} is $${getAverageSalaryByCompany(company)}`
+    document.getElementById("salaryAverageIndustry").innerText = `The average salary in the Tech industry is $${getIndustryAverageSalary()}`;
+}   
 
 renderRadioInputBtnsAndLabels(companies, 'company');
 renderRadioInputBtnsAndLabels(roles, 'role');
